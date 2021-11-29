@@ -67,7 +67,7 @@ loops = size(wCool_vec,1);
 F(loops) = struct('cdata',[],'colormap',[]);
 for i = 1:loops
     w_curr = reshape(wCool_vec(i, :), n, n);
-    set(gcf, 'Position',  [50, 100, 1150, 500]);
+    set(gcf, 'Position',  [50, 100, 1150, 501]);
     ax1 = subplot(1, 2, 1);
     pcolor(X, Y, w_curr); 
     shading interp; colormap(lines(60)); axis off;
@@ -82,7 +82,7 @@ for i = 1:loops
     drawnow;
     F(i) = getframe(gcf);
 end
-video = VideoWriter('AsCoolAsItGets.avi', 'MPEG-4');
+video = VideoWriter('AsCoolAsItGets.avi', 'Uncompressed AVI');
 video.FrameRate = 60;
 open(video)
 writeVideo(video, F);
